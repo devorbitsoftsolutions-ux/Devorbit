@@ -1,0 +1,13 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+/generated/prisma
+
+# Python chatbot
+chatbot-pg/venv/
+chatbot-pg/__pycache__/
+chatbot-pg/populate_knowledge.py
+chatbot-pg/setup.sh
+chatbot-pg/.env.example
+chatbot-pg/ingest.py

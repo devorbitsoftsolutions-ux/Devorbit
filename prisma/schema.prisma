@@ -1,0 +1,642 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Portfolio {
+  id                 String    @id @default(cuid())
+  title              String
+  category           String
+  description        String
+  detailedDescription String   @default("")
+  imageUrl           String
+  bannerImage        String?
+  technologies       Json?
+  features           Json?
+  galleryImages      Json?
+  statistics         Json?
+  projectUrl         String?
+  clientName         String?
+  industry           String?
+  projectDuration    String?
+  projectType        String?
+  completionDate     DateTime?
+  active             Boolean   @default(true)
+  featured           Boolean   @default(false)
+  order              Int       @default(0)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@map("portfolios")
+}
+
+model Service {
+  id                 String   @id @default(cuid())
+  title              String
+  description        String
+  detailedDescription String  @default("")
+  imageUrl           String   @default("")
+  features           Json     @default("[]")
+  technologies       Json     @default("[]")
+  icon               String
+  color              String
+  order              Int      @default(0)
+  active             Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@map("services")
+}
+
+model Job {
+  id               String   @id @default(cuid())
+  title            String
+  department       Department
+  location         String
+  type             String
+  description      String
+  requirements     String[]
+  benefits         String[]
+  imageUrl         String?
+  compensationType String?
+  whoCanApply      String?
+  active           Boolean  @default(true)
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("jobs")
+}
+
+model Initiative {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  color       String
+  link        String?
+  order       Int      @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("initiatives")
+}
+
+model Consulting {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  color       String
+  link        String?
+  order       Int      @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("consulting")
+}
+
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("news")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  projectType String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("contact_messages")
+}
+
+model SiteSettings {
+  id          String   @id @default("main")
+  siteName    String   @default("DevOrbit")
+  tagline     String   @default("Launching Digital Futures")
+  heroTitle   String   @default("Innovate at Light Speed")
+  heroSubtitle String  @default("We engineer scalable web platforms, mobile apps, and AI-driven ecosystems that defy gravity.")
+  heroBadge    String   @default("")
+  docbotApiKey  String   @default("")
+  chatbotApiKey String  @default("")
+  chatbotBaseUrl String @default("https://openrouter.ai/api/v1")
+  chatbotModel  String  @default("anthropic/claude-3-haiku")
+  updatedAt   DateTime @updatedAt
+
+  @@map("site_settings")
+}
+
+model FormSection {
+  id          String             @id @default(cuid())
+  title       String
+  description String?
+  displayOrder Int               @default(0)
+  isActive    Boolean            @default(true)
+  questions   FormQuestion[]
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@map("form_sections")
+}
+
+model FormQuestion {
+  id               String            @id @default(cuid())
+  sectionId        String
+  section          FormSection       @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  questionText     String
+  fieldName        String
+  fieldType        String
+  placeholder      String?
+  helpText         String?
+  required         Boolean           @default(false)
+  isActive         Boolean           @default(true)
+  displayOrder     Int               @default(0)
+  options          Json?
+  validationRules  Json?
+  answers          ApplicationAnswer[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@map("form_questions")
+}
+
+model Application {
+  id              String              @id @default(cuid())
+  applicantId     String?             @unique
+  candidateName   String?
+  email           String?
+  status          String              @default("PENDING")
+  submittedAt     DateTime?
+  answers         ApplicationAnswer[]
+  adminNotes      AdminNote[]
+  activityLogs    ActivityLog[]
+  resumeUrl       String?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@map("applications")
+}
+
+model ApplicationAnswer {
+  id            String        @id @default(cuid())
+  applicationId String
+  application   Application   @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  questionId    String
+  question      FormQuestion  @relation(fields: [questionId], references: [id])
+  answer        String?
+  createdAt     DateTime      @default(now())
+
+  @@map("application_answers")
+}
+
+model AdminNote {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  content       String
+  createdBy     String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@map("admin_notes")
+}
+
+model ActivityLog {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  action        String
+  description   String?
+  performedBy   String?
+  createdAt     DateTime    @default(now())
+
+  @@map("activity_logs")
+}
+
+model EmailSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      String?
+  source    String?  @default("MANUAL")
+  metadata  Json?    @default("{}")
+  subscribed Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_subscribers")
+}
+
+model EmailTemplate {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  subject   String
+  bodyHtml  String
+  variables String[] @default([])
+  campaigns EmailCampaign[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_templates")
+}
+
+model EmailCampaign {
+  id              String        @id @default(cuid())
+  subject         String
+  templateId      String?
+  template        EmailTemplate? @relation(fields: [templateId], references: [id])
+  status          String        @default("DRAFT")
+  totalRecipients Int           @default(0)
+  sentCount       Int           @default(0)
+  failedCount     Int           @default(0)
+  segment         Json?
+  scheduledAt     DateTime?
+  sentAt          DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  logs            EmailLog[]
+
+  @@map("email_campaigns")
+}
+
+model EmailLog {
+  id            String        @id @default(cuid())
+  campaignId    String?
+  campaign      EmailCampaign? @relation(fields: [campaignId], references: [id])
+  email         String
+  recipientId   String?
+  recipientType String?       @default("USER")
+  recipientName String?
+  messageType   String?
+  reason        String?
+  status        String        @default("PENDING")
+  subject       String
+  error         String?
+  openedAt      DateTime?
+  clickedAt     DateTime?
+  sentAt        DateTime?
+  createdAt     DateTime      @default(now())
+
+  @@map("email_logs")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum Department {
+  JOBS
+  INTERNSHIP
+}
+
+model FooterSection {
+  id        String   @id @default(cuid())
+  title     String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  links     FooterLink[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("footer_sections")
+}
+
+model FooterLink {
+  id           String        @id @default(cuid())
+  sectionId    String
+  section      FooterSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  title        String
+  url          String
+  openInNewTab Boolean       @default(false)
+  sortOrder    Int           @default(0)
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@map("footer_links")
+}
+
+model FooterSocial {
+  id        String   @id @default(cuid())
+  platform  String
+  url       String
+  icon      String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("footer_socials")
+}
+
+model FooterSetting {
+  id              String  @id @default("main")
+  companyName     String  @default("DevOrbit")
+  description     String  @default("Engineering the future of digital experiences. We build software that matters.")
+  copyright       String  @default("© 2025 DevOrbit Inc. All rights reserved.")
+  privacyUrl      String  @default("")
+  termsUrl        String  @default("")
+  bgColor         String  @default("#0b0c1a")
+  contactEmail    String  @default("")
+  contactPhone    String  @default("")
+  contactLocation String  @default("")
+  addressCoords   String  @default("")
+  showSocial      Boolean @default(true)
+  showDescription Boolean @default(true)
+  showCopyright   Boolean @default(true)
+  showLegal       Boolean @default(true)
+
+  @@map("footer_settings")
+}
+
+model TeamPageSetting {
+  id              String  @id @default("main")
+  pageTitle       String  @default("Meet Our Team")
+  heroHeading     String  @default("Meet The Team")
+  heroSubheading  String  @default("The people building the future of digital experiences.")
+  heroBgImage     String  @default("")
+  seoTitle        String  @default("")
+  seoDescription  String  @default("")
+  metaKeywords    String  @default("")
+  ogImage         String  @default("")
+  showLeadership  Boolean @default(true)
+  showDepartments Boolean @default(true)
+  showTeamMembers Boolean @default(true)
+  showHierarchy   Boolean @default(true)
+  showTestimonials Boolean @default(true)
+  showAwards      Boolean @default(true)
+  showLocations   Boolean @default(true)
+  showStatistics  Boolean @default(true)
+  showCustomSections Boolean @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("team_page_settings")
+}
+
+model LeadershipMember {
+  id          String   @id @default(cuid())
+  name        String
+  position    String
+  department  String   @default("")
+  photo       String   @default("")
+  bio         String   @default("")
+  email       String   @default("")
+  linkedIn    String   @default("")
+  twitter     String   @default("")
+  github      String   @default("")
+  displayOrder Int     @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("leadership_members")
+}
+
+model TeamDepartment {
+  id             String   @id @default(cuid())
+  name           String
+  description    String   @default("")
+  departmentHead String   @default("")
+  image          String   @default("")
+  displayOrder   Int      @default(0)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  members        TeamMember[]
+
+  @@map("team_departments")
+}
+
+model TeamMember {
+  id             String         @id @default(cuid())
+  image          String         @default("")
+  fullName       String
+  jobTitle       String         @default("")
+  departmentId   String?
+  department     TeamDepartment? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  reportsToId    String?
+  reportsTo      TeamMember? @relation("ManagerRelation", fields: [reportsToId], references: [id], onDelete: SetNull)
+  reports        TeamMember[] @relation("ManagerRelation")
+  email          String     @default("")
+  phone          String     @default("")
+  linkedIn       String     @default("")
+  github         String     @default("")
+  bio            String     @default("")
+  skills         Json       @default("[]")
+  experience     String     @default("")
+  joinDate       String     @default("")
+  location       String     @default("")
+  isActive       Boolean    @default(true)
+  displayOrder   Int        @default(0)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@map("team_members")
+}
+
+model OrgNode {
+  id           String   @id @default(cuid())
+  label        String
+  parentId     String?
+  parent       OrgNode?  @relation("OrgHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children     OrgNode[] @relation("OrgHierarchy")
+  level        Int      @default(0)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("org_nodes")
+}
+
+model Founder {
+  id           String   @id @default(cuid())
+  name         String
+  position     String   @default("")
+  story        String   @default("")
+  photo        String   @default("")
+  linkedIn     String   @default("")
+  twitter      String   @default("")
+  github       String   @default("")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("founders")
+}
+
+model Advisor {
+  id           String   @id @default(cuid())
+  name         String
+  designation  String   @default("")
+  company      String   @default("")
+  photo        String   @default("")
+  bio          String   @default("")
+  linkedIn     String   @default("")
+  twitter      String   @default("")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("advisors")
+}
+
+model TeamStatistic {
+  id           String   @id @default(cuid())
+  number       String
+  label        String
+  icon         String   @default("")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("team_statistics")
+}
+
+model Award {
+  id           String   @id @default(cuid())
+  title        String
+  description  String   @default("")
+  date         String   @default("")
+  image        String   @default("")
+  externalLink String   @default("")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("awards")
+}
+
+model Testimonial {
+  id           String   @id @default(cuid())
+  name         String
+  position     String   @default("")
+  photo        String   @default("")
+  testimonial  String
+  rating       Int      @default(5)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+model OfficeLocation {
+  id           String   @id @default(cuid())
+  country      String
+  city         String
+  officeName   String   @default("")
+  address      String   @default("")
+  mapUrl       String   @default("")
+  image        String   @default("")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("office_locations")
+}
+
+model CustomSection {
+  id           String   @id @default(cuid())
+  title        String
+  subtitle     String   @default("")
+  content      String   @default("")
+  images       Json     @default("[]")
+  videos       Json     @default("[]")
+  ctaText      String   @default("")
+  ctaUrl       String   @default("")
+  displayOrder Int      @default(0)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("custom_sections")
+}
+
+model MediaItem {
+  id        String   @id @default(cuid())
+  type      String   @default("IMAGE")
+  url       String
+  altText   String   @default("")
+  filename  String   @default("")
+  createdAt DateTime @default(now())
+
+  @@map("media_items")
+}
+
+model InternshipRole {
+  id           String   @id @default(cuid())
+  title        String
+  isActive     Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("internship_roles")
+}
+
+model CallRequest {
+  id        String   @id @default(cuid())
+  name      String
+  purpose   String
+  whatsapp  String
+  datetime  DateTime
+  createdAt DateTime @default(now())
+
+  @@map("call_requests")
+}
+
+model HeroCard {
+  id         String   @id @default(cuid())
+  title      String   @default("")
+  subtitle   String   @default("")
+  image      String   @default("")
+  imageType  String   @default("url")
+  tag           String   @default("")
+  glowColor     String   @default("")
+  glowOpacity   Int      @default(15)
+  titleColor          String   @default("")
+  titleGlowColor      String   @default("")
+  titleGlowOpacity    Int      @default(15)
+  subtitleColor       String   @default("")
+  subtitleGlowColor   String   @default("")
+  subtitleGlowOpacity Int      @default(15)
+  buttonText    String?
+  buttonLink String?
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("hero_cards")
+}

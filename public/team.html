@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Meet Our Team | DevOrbit</title>
+    <link rel="icon" href="/logo.png" type="image/png" sizes="any">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --brand-dark: #112D4E;
+            --brand-mid: #3F72AF;
+            --brand-light: #3F72AF;
+            --brand-cream: #F9F7F7;
+            --bg-primary: #F9F7F7;
+            --bg-surface: #DBE2EF;
+            --bg-elevated: #F9F7F7;
+            --bg-offset: #DBE2EF;
+            --text-primary: #112D4E;
+            --text-secondary: #3F72AF;
+            --text-muted: rgba(63, 114, 175, 0.6);
+            --accent-primary: #3F72AF;
+            --accent-secondary: #3F72AF;
+            --accent-tertiary: #112D4E;
+            --border-color: rgba(63, 114, 175, 0.2);
+            --glass-bg: rgba(249, 247, 247, 0.9);
+            --glass-highlight: rgba(63, 114, 175, 0.05);
+            --shadow-subtle: 0 4px 6px -1px rgba(17, 45, 78, 0.06), 0 2px 4px -1px rgba(17, 45, 78, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(17, 45, 78, 0.06), 0 10px 10px -5px rgba(17, 45, 78, 0.02);
+        }
+        [data-theme="dark"] {
+            --bg-primary: #111844;
+            --bg-surface: rgba(75, 86, 148, 0.15);
+            --bg-elevated: rgba(75, 86, 148, 0.2);
+            --bg-offset: #0b0c1a;
+            --text-primary: #EAE0CF;
+            --text-secondary: #8BB8E8;
+            --text-muted: rgba(234, 224, 207, 0.5);
+            --accent-primary: #8BB8E8;
+            --accent-secondary: #4B5694;
+            --accent-tertiary: #EAE0CF;
+            --border-color: rgba(139, 184, 232, 0.2);
+            --glass-bg: rgba(17, 24, 68, 0.75);
+            --glass-highlight: rgba(114, 136, 174, 0.08);
+            --shadow-subtle: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.2);
+            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.2);
+            --card-glow: 0 0 30px rgba(114,136,174,0.15);
+        }
+        html.theme-transition,
+        html.theme-transition *,
+        html.theme-transition *::before,
+        html.theme-transition *::after {
+            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease !important;
+        }
+        html.theme-transition .material-symbols-outlined {
+            transition: none !important;
+        }
+
+        #themeToggle {
+            background: rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: none;
+            cursor: pointer;
+            color: #475569;
+        }
+        #themeToggle:hover {
+            background: rgba(0,0,0,0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: #1e293b;
+        }
+        [data-theme="dark"] #themeToggle {
+            background: rgba(255,255,255,0.15) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+            color: var(--text-secondary) !important;
+        }
+        [data-theme="dark"] #themeToggle:hover {
+            background: rgba(255,255,255,0.22) !important;
+            color: #fff !important;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Hero */
+        .team-hero {
+            background: linear-gradient(135deg, #112D4E 0%, #112D4E 50%, #112D4E 100%);
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(63,114,175,0.2) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(63,114,175,0.15) 0%, transparent 60%);
+        }
+        .team-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3F72AF, #3F72AF, transparent);
+        }
+        .team-hero .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .team-hero .particle {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: rgba(249,247,247,0.15);
+            border-radius: 50%;
+            animation: float 12s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-60px) scale(1.5); opacity: 0.8; }
+        }
+        .team-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #F9F7F7;
+            position: relative;
+            animation: heroFadeIn 1s ease forwards;
+        }
+        .team-hero h1 span {
+            background: linear-gradient(135deg, #3F72AF, #3F72AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .team-hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(249,247,247,0.7);
+            margin-top: 1rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            animation: heroFadeIn 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Section */
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .section-title .accent {
+            color: var(--accent-primary);
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Cards */
+        .team-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .team-card:hover::before { transform: scaleX(1); }
+        .team-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px) scale(1.01);
+            border-color: var(--border-color);
+        }
+        .team-card .avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-primary);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .team-card:hover .avatar { transform: scale(1.08); border-color: var(--accent-primary); }
+        .team-card .avatar-placeholder {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary));
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover .avatar-placeholder { transform: scale(1.08); }
+        .team-card .name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        .team-card .role {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .team-card .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        .team-card .social-links a:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Testimonial */
+        .testimonial-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--accent-primary);
+            opacity: 0.12;
+            position: absolute;
+            top: 0.5rem; left: 1.5rem;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .testimonial-card .text {
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1rem;
+        }
+        .testimonial-card .position {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .stars { color: var(--accent-primary); font-size: 1.1rem; }
+
+        /* Horizontal Org Chart */
+        .org-h-scroll {
+            overflow-x: auto;
+            padding: 1rem 0 2rem;
+        }
+        .org-h-row {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 0;
+        }
+        .org-h-card {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-subtle);
+            padding: 14px 20px;
+            min-width: 170px;
+            max-width: 200px;
+            transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.1);
+            cursor: default;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .org-h-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+            border-color: var(--border-color);
+        }
+        .org-h-card.level-0 { border-left: 5px solid var(--accent-primary); }
+        .org-h-card.level-1 { border-left: 5px solid var(--accent-primary); }
+        .org-h-card.level-2 { border-left: 5px solid var(--accent-primary); }
+        .org-h-card.level-3 { border-left: 5px solid var(--accent-primary); }
+        .org-h-avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+        .org-h-info { min-width: 0; }
+        .org-h-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .org-h-title {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Children column — left border acts as vertical connector */
+        .org-h-children {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 18px;
+            padding-left: 22px;
+            position: relative;
+            border-left: 2px solid var(--accent-primary);
+        }
+        .org-h-children.single {
+            justify-content: center;
+        }
+        /* Horizontal connector from parent card to vertical bar */
+        .org-h-children::before {
+            content: '';
+            position: absolute;
+            left: -13px;
+            top: 50%;
+            width: 12px;
+            height: 2px;
+            background: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        .org-h-child {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+            padding: 6px 0;
+        }
+        /* Vertical drop from horizontal bar to each child card */
+        .org-h-child::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--accent-primary);
+        }
+        .org-h-child:first-child::before { top: 50%; height: 50%; }
+        .org-h-child:last-child::before { height: 50%; }
+        .org-h-child:only-child::before { top: 50%; height: 50%; }
+
+        /* Dept */
+        .dept-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .dept-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+            border-color: var(--border-color);
+        }
+        .dept-card h4 { font-family: 'Outfit', sans-serif; font-weight: 600; }
+        .dept-card .dept-head {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 0.5rem;
+            padding: 2px 10px;
+            background: var(--glass-highlight);
+            border-radius: 20px;
+        }
+
+        .compact-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .compact-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-primary); }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(63,114,175,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--accent-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(63,114,175,0.4);
+        }
+
+        @media (max-width: 640px) {
+            .team-hero { min-height: 40vh; padding: 5rem 1rem 3rem; }
+            .org-children { gap: 0.75rem; }
+        }
+            /* === Brand Color Overrides for Tailwind Classes === */
+        .text-blue-500 { color: var(--accent-primary) !important; }
+        .bg-blue-100 { background: var(--glass-highlight) !important; }
+        .text-blue-600 { color: var(--accent-primary) !important; }
+        .bg-amber-100 { background: rgba(114, 136, 174, 0.1) !important; }
+        .text-amber-600 { color: var(--accent-primary) !important; }
+        .bg-blue-600 { background: var(--accent-primary) !important; }
+        .text-red-300 { color: var(--accent-primary) !important; }
+        .from-blue-50 { --tw-gradient-from: var(--glass-highlight) !important; }
+        .to-indigo-50 { --tw-gradient-to: var(--glass-highlight) !important; }
+        .text-blue-300 { color: var(--accent-primary) !important; }
+        .hover\:bg-blue-700:hover { background: var(--brand-dark) !important; }
+        .hover\:text-red-600:hover { color: var(--accent-primary) !important; }
+        .bg-white { background-color: var(--bg-primary) !important; }
+        .text-white { color: var(--text-primary) !important; }
+        .bg-gray-50, .bg-slate-50 { background-color: var(--bg-primary) !important; }
+        .bg-gray-100, .bg-slate-100 { background-color: var(--bg-surface) !important; }
+        .text-slate-400 { color: var(--text-secondary) !important; }
+        .text-slate-500 { color: var(--text-secondary) !important; }
+        .text-slate-600 { color: var(--text-secondary) !important; }
+        .text-slate-700 { color: var(--text-primary) !important; }
+        .text-slate-900 { color: var(--text-primary) !important; }
+        .bg-brand-cream, .bg-brand-surface { background: var(--bg-primary) !important; }
+        .text-brand-mid { color: var(--accent-primary) !important; }
+        .text-brand-dark { color: var(--brand-dark) !important; }
+        .text-brand-light { color: var(--accent-primary) !important; }
+
+        [data-theme="dark"] .bg-amber-100 { background: rgba(114, 136, 174, 0.15) !important; }
+        [data-theme="dark"] .from-blue-50 { --tw-gradient-from: rgba(75, 86, 148, 0.15) !important; }
+        [data-theme="dark"] .to-indigo-50 { --tw-gradient-to: rgba(75, 86, 148, 0.15) !important; }
+        [data-theme="dark"] .hover\:bg-blue-700:hover { background: var(--accent-secondary) !important; }
+        [data-theme="dark"] .text-red-300 { color: var(--text-muted) !important; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="flex items-center justify-center min-h-screen text-slate-400 text-lg">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined animate-spin text-blue-500 text-3xl">progress_activity</span>
+                Loading team...
+            </div>
+        </div>
+    </div>
+
+    <!-- JSON-LD will be injected by script -->
+    <div id="jsonld-container"></div>
+
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300" aria-label="Toggle theme">
+        <span id="themeIcon" class="material-symbols-outlined text-xl">dark_mode</span>
+    </button>
+
+    <script>
+        const API = '/api/team/public';
+
+        // ── Back to top ──
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backBtn.classList.toggle('show', window.scrollY > 500);
+        });
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ── Helpers ──
+        function initials(name) {
+            return name ? name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase() : '??';
+        }
+
+        function renderStars(n) {
+            return '<span class="stars">' + '★'.repeat(Math.min(n || 0, 5)) + '</span>';
+        }
+
+        function socialLink(linkedIn) {
+            if (!linkedIn) return '';
+            return `<a href="${linkedIn.startsWith('http') ? linkedIn : 'https://' + linkedIn}" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>`;
+        }
+
+        function imgTag(src, alt, cls = '') {
+            if (!src) return '';
+            return `<img src="${src}" alt="${alt || ''}" loading="lazy" class="${cls}" onerror="this.style.display='none'">`;
+        }
+
+        function avatarImg(src, alt, cls = 'mx-auto') {
+            return src ? imgTag(src, alt, `avatar ${cls}`) : '';
+        }
+
+        function avatarPlaceholder(name, cls = 'mx-auto') {
+            return `<div class="avatar-placeholder ${cls}">${initials(name)}</div>`;
+        }
+
+
+        // ── Org chart ──
+        function nodeColor(str) {
+            let h = 0;
+            for (let i = 0; i < str.length; i++) h = str.charCodeAt(i) + ((h << 5) - h);
+            h = Math.abs(h) % 360;
+            return { bg: `hsla(${h},55%,92%,1)`, fg: `hsla(${h},55%,38%,1)` };
+        }
+
+        function parseLabel(label) {
+            const m = label.match(/^(.+?)\s*\((.+?)\)\s*$/);
+            return m ? { name: m[1].trim(), title: m[2].trim() } : { name: label, title: '' };
+        }
+
+        function buildOrgTree(flatNodes) {
+            if (!flatNodes || flatNodes.length === 0) return '<p class="text-slate-400 text-center">No hierarchy data available.</p>';
+
+            const getChildren = (parentId) =>
+                flatNodes.filter(n => n.parentId === parentId)
+                    .sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+
+            const renderNode = (node) => {
+                const children = getChildren(node.id);
+                const { name, title } = parseLabel(node.label);
+                const col = nodeColor(name);
+                const level = node.level || 0;
+                const levelClass = 'level-' + Math.min(level, 3);
+
+                const card = `
+                    <div class="org-h-card ${levelClass}">
+                        <div class="org-h-avatar" style="background:${col.bg};color:${col.fg}">${initials(name)}</div>
+                        <div class="org-h-info">
+                            <div class="org-h-name">${escHtml(name)}</div>
+                            ${title ? '<div class="org-h-title">' + escHtml(title) + '</div>' : ''}
+                        </div>
+                    </div>`;
+
+                if (children.length === 0) return card;
+
+                const childrenHtml = children.map(c =>
+                    `<div class="org-h-child">${renderNode(c)}</div>`
+                ).join('');
+
+                const single = children.length === 1 ? ' single' : '';
+                return `
+                    <div class="org-h-row">
+                        ${card}
+                        <div class="org-h-children${single}">${childrenHtml}</div>
+                    </div>`;
+            };
+
+            const roots = getChildren(null);
+            if (roots.length === 0) return '<p class="text-slate-400 text-center">No root nodes found.</p>';
+
+            return `<div class="org-h-scroll"><div class="org-h-row">${roots.map(renderNode).join('')}</div></div>`;
+        }
+
+        function escHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        // ── Main load ──
+        async function load() {
+            try {
+                const res = await fetch(API);
+                if (!res.ok) throw new Error('Failed to load team data');
+                const data = await res.json();
+
+                const s = data.settings || {};
+
+                // ── Dynamic meta ──
+                document.title = s.seoTitle || s.pageTitle || 'Meet Our Team | DevOrbit';
+                if (s.seoDescription) {
+                    let meta = document.querySelector('meta[name="description"]');
+                    if (!meta) { meta = document.createElement('meta'); meta.name = 'description'; document.head.appendChild(meta); }
+                    meta.content = s.seoDescription;
+                }
+                if (s.metaKeywords) {
+                    let meta = document.querySelector('meta[name="keywords"]');
+                    if (!meta) { meta = document.createElement('meta'); meta.name = 'keywords'; document.head.appendChild(meta); }
+                    meta.content = s.metaKeywords;
+                }
+
+                // ── JSON-LD ──
+                const jsonld = {
+                    '@context': 'https://schema.org',
+                    '@type': 'Organization',
+                    name: s.pageTitle || 'DevOrbit Team',
+                    description: s.seoDescription || s.heroSubheading || '',
+                    url: window.location.href,
+                };
+                const founders = data.founders || [];
+                const leadership = data.leadership || [];
+                jsonld.founder = founders.map(f => ({
+                    '@type': 'Person',
+                    name: f.name,
+                    jobTitle: f.position,
+                    description: f.story,
+                }));
+                if (leadership.length > 0) {
+                    jsonld.employee = leadership.map(l => ({
+                        '@type': 'Person',
+                        name: l.name,
+                        jobTitle: l.position,
+                    }));
+                }
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(jsonld, null, 2);
+                document.getElementById('jsonld-container').appendChild(script);
+
+                // ── Build HTML ──
+                let html = '';
+
+                // Back link
+                html += `<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                    <a href="http://localhost:3000/" class="back-link"><span class="material-symbols-outlined text-lg">arrow_back</span> Back to Home</a>
+                </div>`;
+
+                // Hero
+                const heroStyle = s.heroBgImage ? ` style="background-image: url('${s.heroBgImage}'); background-size: cover; background-position: center;"` : '';
+                html += `<section class="team-hero"${heroStyle}>
+                    <div class="particles">${Array.from({length: 20}, (_, i) => `<div class="particle" style="left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*8}s;animation-duration:${8+Math.random()*8}s"></div>`).join('')}</div>
+                    <div>
+                        <h1>${s.heroHeading || 'Meet The <span>Team</span>'}</h1>
+                        <p>${s.heroSubheading || 'The people building the future of digital experiences.'}</p>
+                    </div>
+                </section>`;
+
+                const mainStart = '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">';
+                html += mainStart;
+
+                // ── Founders ──
+                if (data.founders?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title">Our <span class="accent">Founders</span></h2>
+                        <p class="section-subtitle">The visionaries behind DevOrbit.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${data.founders.map((f, i) => `
+                                <div class="team-card text-center" style="animation-delay:${i * 0.1}s">
+                                    ${f.photo ? avatarImg(f.photo, f.name, 'mx-auto') : avatarPlaceholder(f.name)}
+                                    <div class="name">${f.name}</div>
+                                    ${f.position ? `<div class="role">${f.position}</div>` : ''}
+                                    ${f.story ? `<p class="text-sm text-slate-500 mt-2">${f.story}</p>` : ''}
+                                    <div class="social-links flex justify-center gap-2 mt-3">
+                                        ${socialLink(f.linkedIn)}
+                                        ${f.twitter ? `<a href="${f.twitter.startsWith('http') ? f.twitter : 'https://' + f.twitter}" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>` : ''}
+                                        ${f.github ? `<a href="${f.github.startsWith('http') ? f.github : 'https://' + f.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Leadership ──
+                if (s.showLeadership !== false && data.leadership?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title"><span class="accent">Leadership</span></h2>
+                        <p class="section-subtitle">Meet the leaders driving our vision forward.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            ${data.leadership.map((l, i) => `
+                                <div class="team-card text-center" style="animation-delay:${i * 0.05}s">
+                                    ${l.photo ? avatarImg(l.photo, l.name, 'mx-auto') : avatarPlaceholder(l.name)}
+                                    <div class="name">${l.name}</div>
+                                    ${l.position ? `<div class="role">${l.position}</div>` : ''}
+                                    ${l.department ? `<div class="text-xs text-slate-400 mt-1">${l.department}</div>` : ''}
+                                    ${l.bio ? `<p class="text-xs text-slate-500 mt-2 line-clamp-3">${l.bio}</p>` : ''}
+                                    <div class="social-links flex justify-center gap-2 mt-3">
+                                        ${socialLink(l.linkedIn)}
+                                        ${l.twitter ? `<a href="${l.twitter.startsWith('http') ? l.twitter : 'https://' + l.twitter}" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>` : ''}
+                                        ${l.github ? `<a href="${l.github.startsWith('http') ? l.github : 'https://' + l.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Advisors ──
+                if (data.advisors?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title"><span class="accent">Advisors</span></h2>
+                        <p class="section-subtitle">Trusted guidance from industry experts.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            ${data.advisors.map((a, i) => `
+                                <div class="team-card text-center" style="animation-delay:${i * 0.05}s">
+                                    ${a.photo ? avatarImg(a.photo, a.name, 'mx-auto') : avatarPlaceholder(a.name)}
+                                    <div class="name">${a.name}</div>
+                                    ${a.designation ? `<div class="role">${a.designation}</div>` : ''}
+                                    ${a.company ? `<div class="text-xs text-slate-400">${a.company}</div>` : ''}
+                                    ${a.bio ? `<p class="text-xs text-slate-500 mt-2 line-clamp-2">${a.bio}</p>` : ''}
+                                    <div class="social-links flex justify-center gap-2 mt-3">
+                                        ${socialLink(a.linkedIn)}
+                                        ${a.twitter ? `<a href="${a.twitter.startsWith('http') ? a.twitter : 'https://' + a.twitter}" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Departments ──
+                if (s.showDepartments !== false && data.departments?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title"><span class="accent">Departments</span></h2>
+                        <p class="section-subtitle">Our areas of expertise.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${data.departments.map((d, i) => `
+                                <div class="dept-card" style="animation-delay:${i * 0.05}s">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        ${d.image ? `<img src="${d.image}" alt="${d.name}" class="w-12 h-12 rounded-xl object-cover" loading="lazy">` : `<div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg">${initials(d.name)}</div>`}
+                                        <h4>${d.name}</h4>
+                                    </div>
+                                    ${d.description ? `<p class="text-sm text-slate-500">${d.description}</p>` : ''}
+                                    ${d.departmentHead ? `<span class="dept-head">Head: ${d.departmentHead}</span>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Team Members ──
+                if (s.showTeamMembers !== false && data.members?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title">Team <span class="accent">Members</span></h2>
+                        <p class="section-subtitle">The talented people making it happen.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            ${data.members.map((m, i) => `
+                                <div class="team-card text-center" style="animation-delay:${i * 0.03}s">
+                                    ${m.image ? avatarImg(m.image, m.fullName, 'mx-auto') : avatarPlaceholder(m.fullName)}
+                                    <div class="name">${m.fullName}</div>
+                                    ${m.jobTitle ? `<div class="role">${m.jobTitle}</div>` : ''}
+                                    ${m.department ? `<div class="text-xs text-slate-400 mt-1">${m.department.name || m.departmentId}</div>` : ''}
+                                    ${m.location ? `<div class="text-xs text-slate-400 flex items-center justify-center gap-1 mt-1"><span class="material-symbols-outlined text-xs">location_on</span> ${m.location}</div>` : ''}
+                                    ${m.bio ? `<p class="text-xs text-slate-500 mt-2 line-clamp-2">${m.bio}</p>` : ''}
+                                    <div class="social-links flex justify-center gap-2 mt-3">
+                                        ${socialLink(m.linkedIn)}
+                                        ${m.github ? `<a href="${m.github.startsWith('http') ? m.github : 'https://' + m.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Org Hierarchy ──
+                if (s.showHierarchy !== false && data.orgNodes?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title">Organization <span class="accent">Structure</span></h2>
+                        <p class="section-subtitle">How we are organized.</p>
+                        ${buildOrgTree(data.orgNodes)}
+                    </section>`;
+                }
+
+                // ── Office Locations ──
+                if (s.showLocations !== false && data.locations?.length) {
+                    html += `<section class="reveal">
+                        <h2 class="section-title">Our <span class="accent">Offices</span></h2>
+                        <p class="section-subtitle">Where you can find us.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${data.locations.map((l, i) => `
+                                <div class="compact-card" style="animation-delay:${i * 0.05}s">
+                                    ${l.image ? `<img src="${l.image}" alt="${l.officeName}" class="w-full h-40 object-cover rounded-xl mb-3" loading="lazy">` : `<div class="w-full h-40 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl mb-3 flex items-center justify-center text-blue-300"><span class="material-symbols-outlined text-5xl">location_city</span></div>`}
+                                    <h4 class="font-outfit font-semibold">${l.officeName || l.city}</h4>
+                                    <p class="text-sm text-slate-500 mt-1">
+                                        ${[l.address, l.city, l.country].filter(Boolean).join(', ')}
+                                    </p>
+                                    ${l.mapUrl ? `<a href="${l.mapUrl}" target="_blank" class="text-xs text-blue-600 hover:underline mt-2 inline-flex items-center gap-1"><span class="material-symbols-outlined text-sm">map</span> View on map</a>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>`;
+                }
+
+                // ── Custom Sections ──
+                if (s.showCustomSections !== false && data.customSections?.length) {
+                    html += data.customSections.map((cs, i) => `
+                        <section class="reveal">
+                            <h2 class="section-title">${cs.title}</h2>
+                            ${cs.subtitle ? `<p class="section-subtitle">${cs.subtitle}</p>` : ''}
+                            ${cs.content ? `<div class="text-slate-600 text-sm leading-relaxed max-w-3xl">${cs.content.replace(/\\n/g, '<br>').replace(/\\\n/g, '<br>')}</div>` : ''}
+                            ${cs.images?.length ? `<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">${(typeof cs.images === 'string' ? JSON.parse(cs.images) : cs.images).map((img, j) => `<img src="${typeof img === 'string' ? img : img.url}" alt="" class="rounded-xl object-cover w-full h-48" loading="lazy">`).join('')}</div>` : ''}
+                            ${cs.ctaText && cs.ctaUrl ? `<a href="${cs.ctaUrl}" class="inline-flex items-center gap-2 mt-4 bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">${cs.ctaText} <span class="material-symbols-outlined text-lg">arrow_forward</span></a>` : ''}
+                        </section>
+                    `).join('');
+                }
+
+                html += '</div>'; // close main
+                document.getElementById('app').innerHTML = html;
+
+                // ── IntersectionObserver ──
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+
+            } catch (err) {
+                document.getElementById('app').innerHTML = `
+                    <div class="flex items-center justify-center min-h-screen">
+                        <div class="text-center max-w-md">
+                            <span class="material-symbols-outlined text-6xl text-red-300">error_outline</span>
+                            <h2 class="text-xl font-semibold text-slate-700 mt-4">Failed to load team data</h2>
+                            <p class="text-slate-500 mt-2">${err.message}</p>
+                            <a href="/" class="inline-block mt-4 text-blue-600 hover:underline">Back to home</a>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        load();
+    </script>
+
+    <script>
+    // --- THEME TOGGLE (with cross-page sync) ---
+    (function() {
+      const html = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+      const API = '/api/theme';
+
+      function setTheme(theme, persist) {
+        if (theme === 'dark') {
+          html.setAttribute('data-theme', 'dark');
+          html.classList.add('dark');
+          if (icon) icon.textContent = 'light_mode';
+        } else {
+          html.removeAttribute('data-theme');
+          html.classList.remove('dark');
+          if (icon) icon.textContent = 'dark_mode';
+        }
+        if (persist !== false) {
+          localStorage.setItem('devorbit-theme', theme);
+          fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ theme }) }).catch(() => {});
+        }
+      }
+
+      (async function init() {
+        try {
+          const res = await fetch(API);
+          if (res.ok) { const d = await res.json(); if (d.theme === 'dark') { setTheme('dark', false); return; } }
+        } catch (_) {}
+        const saved = localStorage.getItem('devorbit-theme');
+        if (saved === 'dark') setTheme('dark', false);
+      })();
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.classList.add('theme-transition');
+          setTheme(isDark ? 'light' : 'dark');
+          setTimeout(() => html.classList.remove('theme-transition'), 350);
+        });
+      }
+
+      setInterval(async () => {
+        try {
+          const res = await fetch(API);
+          if (!res.ok) return;
+          const d = await res.json();
+          const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          if (d.theme !== current) setTheme(d.theme, false);
+        } catch (_) {}
+      }, 3000);
+
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) syncTheme(); });
+      window.addEventListener('focus', syncTheme);
+
+      async function syncTheme() {
+        try {
+          const res = await fetch(API);
+          if (!res.ok) return;
+          const d = await res.json();
+          const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          if (d.theme !== current) { html.classList.add('theme-transition'); setTheme(d.theme, false); setTimeout(() => html.classList.remove('theme-transition'), 350); }
+        } catch (_) {}
+      }
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+[
+  {
+    "question": "hi",
+    "answer": "Hey there! How can I assist you today? 😊",
+    "source": "static"
+  },
+  {
+    "question": "hello",
+    "answer": "Hi! Welcome to DevOrbit. How can I help you today?",
+    "source": "static"
+  },
+  {
+    "question": "hey there",
+    "answer": "Hey there! How can I assist you today? 😊",
+    "source": "static"
+  },
+  {
+    "question": "how are you",
+    "answer": "I'm doing great, thanks for asking! How can I help you today?",
+    "source": "static"
+  },
+  {
+    "question": "what is your name",
+    "answer": "I'm the DevOrbit AI Assistant! I'm here to answer your questions about our services, pricing, technologies, and more.",
+    "source": "static"
+  },
+  {
+    "question": "who are you",
+    "answer": "I'm the DevOrbit AI Assistant! I can help you with information about our services, pricing, portfolio, and tech stack.",
+    "source": "static"
+  },
+  {
+    "question": "can you help me",
+    "answer": "Of course! I can help you with information about DevOrbit's services, pricing, technologies, portfolio, and more. What would you like to know?",
+    "source": "static"
+  },
+  {
+    "question": "thank you",
+    "answer": "You're welcome! 😊 Feel free to ask if you have any other questions.",
+    "source": "static"
+  },
+  {
+    "question": "thanks",
+    "answer": "You're welcome! Happy to help. Let me know if there's anything else.",
+    "source": "static"
+  },
+  {
+    "question": "bye",
+    "answer": "Goodbye! Feel free to come back anytime. Have a great day! 😊",
+    "source": "static"
+  },
+  {
+    "question": "goodbye",
+    "answer": "Goodbye! Feel free to come back anytime. Have a great day! 😊",
+    "source": "static"
+  },
+  {
+    "question": "what services does devorbit offer",
+    "answer": "DevOrbit offers a comprehensive range of digital services including web development, mobile app development, AI and machine learning solutions, cloud infrastructure, UI/UX design, DevOps consulting, and custom enterprise software development.",
+    "source": "static"
+  },
+  {
+    "question": "what technologies does devorbit use",
+    "answer": "We specialize in modern technologies including React, Next.js, Vue.js, Node.js, Python, TypeScript, Go, AWS, Azure, Google Cloud, Docker, Kubernetes, PostgreSQL, MongoDB, TensorFlow, and PyTorch.",
+    "source": "static"
+  },
+  {
+    "question": "how much does devorbit charge for a website",
+    "answer": "Our pricing is project-based and varies depending on complexity and scope. A simple landing page starts around $2,000, while a full-featured web application can range from $10,000 to $50,000+. Contact us for a free consultation and custom quote.",
+    "source": "static"
+  },
+  {
+    "question": "what is the typical project timeline",
+    "answer": "Project timelines depend on scope. A basic website takes 2-4 weeks, a complex web application 6-12 weeks, and enterprise solutions 3-6 months.",
+    "source": "static"
+  },
+  {
+    "question": "does devorbit build mobile apps",
+    "answer": "Yes! We build native iOS and Android apps using Swift, Kotlin, and cross-platform solutions with React Native and Flutter.",
+    "source": "static"
+  },
+  {
+    "question": "what ai solutions does devorbit provide",
+    "answer": "We deliver AI solutions including custom machine learning models, natural language processing, computer vision systems, predictive analytics, recommendation engines, and AI-powered automation.",
+    "source": "static"
+  },
+  {
+    "question": "can i see devorbit portfolio",
+    "answer": "Absolutely! Our portfolio showcases projects across e-commerce, healthcare, fintech, education, and SaaS platforms. Visit our Portfolio page or contact us for case studies relevant to your industry.",
+    "source": "static"
+  },
+  {
+    "question": "how does the development process work",
+    "answer": "Our process follows five phases: 1) Discovery & Strategy, 2) Design, 3) Development using agile sprints, 4) Testing & QA, 5) Launch & Support.",
+    "source": "static"
+  },
+  {
+    "question": "does devorbit provide post-launch support",
+    "answer": "Yes, we offer comprehensive post-launch support including bug fixes, feature updates, performance monitoring, security patches, and 24/7 emergency support.",
+    "source": "static"
+  },
+  {
+    "question": "how can i contact devorbit",
+    "answer": "You can reach us through our website contact form, email us at devorbitsoftsolutions@gmail.com, or reach out on WhatsApp. We typically respond within 24 hours.",
+    "source": "static"
+  },
+  {
+    "question": "what industries does devorbit serve",
+    "answer": "We serve a wide range of industries including healthcare, fintech, e-commerce, education, real estate, logistics, entertainment, and SaaS.",
+    "source": "static"
+  },
+  {
+    "question": "does devorbit offer ui ux design services",
+    "answer": "Yes, our design team specializes in user research, information architecture, wireframing, high-fidelity prototyping, usability testing, and design systems.",
+    "source": "static"
+  },
+  {
+    "question": "what are your prices",
+    "answer": "DevOrbit offers competitive, project-based pricing. A basic website starts at $2,000, mobile apps from $8,000, AI solutions from $5,000, and cloud setup from $2,000. Hourly rates range from $100-$175. Contact us for a free custom quote.",
+    "source": "static"
+  },
+  {
+    "question": "how much does it cost",
+    "answer": "Our pricing depends on the project scope. A standard business website is $2,000-$5,000, mobile apps $8,000+, AI proof of concepts from $5,000. We offer free 30-minute consultations to provide an accurate estimate.",
+    "source": "static"
+  },
+  {
+    "question": "tell me about pricing",
+    "answer": "DevOrbit uses project-based pricing: websites start at $2,000, apps at $8,000, AI solutions at $5,000, and cloud/DevOps from $2,000. Hourly consulting is $100-$175/hour. Every project starts with a free discovery call.",
+    "source": "static"
+  },
+  {
+    "question": "what are your rates",
+    "answer": "DevOrbit rates: Fixed project pricing for well-defined scopes, or hourly at $100-$175/hour depending on technology and complexity. Monthly retainers for ongoing support start at $500/month.",
+    "source": "static"
+  },
+  {
+    "question": "do you have pricing for small businesses",
+    "answer": "Yes! We work with businesses of all sizes. Basic websites start at $2,000, and we offer flexible payment plans (50% upfront, 25% mid-point, 25% on completion). Contact us for options that fit your budget.",
+    "source": "static"
+  },
+  {
+    "question": "tell me about prices",
+    "answer": "DevOrbit uses project-based pricing: websites start at $2,000, mobile apps at $8,000, AI solutions from $5,000, and cloud/DevOps from $2,000. Hourly consulting is $100-$175/hour. Contact us for a free quote tailored to your needs.",
+    "source": "static"
+  },
+  {
+    "question": "i want to know about prices",
+    "answer": "Here is an overview of DevOrbit pricing: Basic website $2,000-$5,000, E-commerce $5,000+, Mobile app $8,000-$30,000+, AI/ML solution $5,000-$100,000+, Cloud setup from $2,000. Hourly rate $100-$175. Free 30-min consultation available.",
+    "source": "static"
+  },
+  {
+    "question": "can you tell me about prices",
+    "answer": "Of course! DevOrbit pricing varies by project: Websites from $2,000, Mobile apps from $8,000, AI solutions from $5,000. We offer free consultations to provide accurate quotes. What type of project are you interested in?",
+    "source": "static"
+  },
+  {
+    "question": "what are the costs for services",
+    "answer": "Here is a quick pricing guide: Website development $2,000-$50,000+, Mobile apps $8,000-$30,000+, AI/ML $5,000-$100,000+, DevOps $2,000-$10,000. Hourly consulting $100-$175. Monthly maintenance $500-$2,000. Contact us for a custom quote!",
+    "source": "static"
+  },
+  {
+    "question": "what is devorbit tech stack for web development",
+    "answer": "For web development, we use React, Next.js, Vue.js, and Angular on the frontend, with Node.js, Python (Django/FastAPI), and Go on the backend.",
+    "source": "static"
+  },
+  {
+    "question": "does devorbit do devops and cloud",
+    "answer": "Absolutely. We offer full DevOps services including CI/CD pipeline setup, infrastructure as code, containerization, cloud migration, monitoring, and AWS/Azure/GCP architecture consulting.",
+    "source": "static"
+  },
+  {
+    "question": "what is devorbit project discovery process",
+    "answer": "During discovery, we conduct stakeholder interviews, analyze your target audience, review competitors, define technical requirements, and create a project roadmap with timeline, milestones, and cost estimate.",
+    "source": "static"
+  },
+  {
+    "question": "tell me about web development service",
+    "answer": "Web Development: High-performance React, Vue, and Angular applications tailored for scale.",
+    "source": "service"
+  },
+  {
+    "question": "what is web development",
+    "answer": "Web Development: High-performance React, Vue, and Angular applications tailored for scale.",
+    "source": "service"
+  },
+  {
+    "question": "does devorbit offer web development",
+    "answer": "Yes! Web Development: High-performance React, Vue, and Angular applications tailored for scale.",
+    "source": "service"
+  },
+  {
+    "question": "tell me about ai machine learning service",
+    "answer": "AI & Machine Learning: Intelligent algorithms to automate processes and predict user behavior.",
+    "source": "service"
+  },
+  {
+    "question": "what is ai machine learning",
+    "answer": "AI & Machine Learning: Intelligent algorithms to automate processes and predict user behavior.",
+    "source": "service"
+  },
+  {
+    "question": "does devorbit offer ai machine learning",
+    "answer": "Yes! AI & Machine Learning: Intelligent algorithms to automate processes and predict user behavior.",
+    "source": "service"
+  },
+  {
+    "question": "tell me about cloud solutions service",
+    "answer": "Cloud Solutions: Secure, scalable cloud architecture on AWS, Azure, and Google Cloud.",
+    "source": "service"
+  },
+  {
+    "question": "what is cloud solutions",
+    "answer": "Cloud Solutions: Secure, scalable cloud architecture on AWS, Azure, and Google Cloud.",
+    "source": "service"
+  },
+  {
+    "question": "does devorbit offer cloud solutions",
+    "answer": "Yes! Cloud Solutions: Secure, scalable cloud architecture on AWS, Azure, and Google Cloud.",
+    "source": "service"
+  },
+  {
+    "question": "what services does devorbit offer",
+    "answer": "DevOrbit offers the following services: Web Development, AI & Machine Learning, Cloud Solutions. Each service is tailored to your specific needs. Contact us for a free consultation.",
+    "source": "service"
+  },
+  {
+    "question": "tell me about nebula market project",
+    "answer": "Nebula Market (E-Commerce): A high-performance marketplace for digital assets handling 10k+ transactions daily.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me nebula market portfolio",
+    "answer": "Nebula Market (E-Commerce): A high-performance marketplace for digital assets handling 10k+ transactions daily.",
+    "source": "portfolio"
+  },
+  {
+    "question": "tell me about orbit wallet project",
+    "answer": "Orbit Wallet (FinTech): Secure mobile wallet with biometric authentication and real-time crypto tracking.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me orbit wallet portfolio",
+    "answer": "Orbit Wallet (FinTech): Secure mobile wallet with biometric authentication and real-time crypto tracking.",
+    "source": "portfolio"
+  },
+  {
+    "question": "tell me about logichain project",
+    "answer": "LogiChain (Enterprise): Supply chain management system using blockchain for transparency and tracking.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me logichain portfolio",
+    "answer": "LogiChain (Enterprise): Supply chain management system using blockchain for transparency and tracking.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me e commerce portfolio projects",
+    "answer": "Our E-Commerce portfolio includes: Nebula Market.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me fintech portfolio projects",
+    "answer": "Our FinTech portfolio includes: Orbit Wallet.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me enterprise portfolio projects",
+    "answer": "Our Enterprise portfolio includes: LogiChain.",
+    "source": "portfolio"
+  },
+  {
+    "question": "can i see devorbit portfolio",
+    "answer": "We have 3 projects in our portfolio across categories including E-Commerce, FinTech, Enterprise. Notable projects: Nebula Market, Orbit Wallet, LogiChain.",
+    "source": "portfolio"
+  },
+  {
+    "question": "show me all portfolio projects",
+    "answer": "Our portfolio includes 3 projects: Nebula Market (E-Commerce), Orbit Wallet (FinTech), LogiChain (Enterprise).",
+    "source": "portfolio"
+  },
+  {
+    "question": "tell me about frontend engineer job",
+    "answer": "Frontend Engineer - JOBS - Pakistan (Contract based): Masters",
+    "source": "job"
+  },
+  {
+    "question": "tell me about senior frontend engineer job",
+    "answer": "Senior Frontend Engineer - INTERNSHIP - Remote / Hybrid (Summer paid Internship): Build cutting-edge web applications using React and TypeScript.",
+    "source": "job"
+  },
+  {
+    "question": "tell me about product designer ui ux job",
+    "answer": "Product Designer (UI/UX) - JOBS - London (On-site) (Full-time): Design beautiful, intuitive user experiences for our clients.",
+    "source": "job"
+  },
+  {
+    "question": "tell me about backend developer go rust job",
+    "answer": "Backend Developer (Go/Rust) - JOBS - Remote (CONTRACT): Build high-performance backend services and APIs.",
+    "source": "job"
+  },
+  {
+    "question": "tell me about software engineering intern job",
+    "answer": "Software Engineering Intern - INTERNSHIP - London (Software Engineering Intern): Gain hands-on experience building real products used by thousands.",
+    "source": "job"
+  },
+  {
+    "question": "what jobs are available in jobs",
+    "answer": "Current JOBS openings: Frontend Engineer (Pakistan, Contract based), Product Designer (UI/UX) (London (On-site), Full-time), Backend Developer (Go/Rust) (Remote, CONTRACT).",
+    "source": "job"
+  },
+  {
+    "question": "what jobs are available in internship",
+    "answer": "Current INTERNSHIP openings: Senior Frontend Engineer (Remote / Hybrid, Summer paid Internship), Software Engineering Intern (London, Software Engineering Intern).",
+    "source": "job"
+  },
+  {
+    "question": "what jobs are available at devorbit",
+    "answer": "We currently have 5 open positions: Frontend Engineer - JOBS (Pakistan), Senior Frontend Engineer - INTERNSHIP (Remote / Hybrid), Product Designer (UI/UX) - JOBS (London (On-site)), Backend Developer (Go/Rust) - JOBS (Remote), Software Engineering Intern - INTERNSHIP (London). Visit our Careers page to apply!",
+    "source": "job"
+  },
+  {
+    "question": "is devorbit hiring",
+    "answer": "Yes! We have 5 open positions: Frontend Engineer, Senior Frontend Engineer, Product Designer (UI/UX), Backend Developer (Go/Rust), Software Engineering Intern. Check our Careers page for details and requirements.",
+    "source": "job"
+  },
+  {
+    "question": "tell me about green coding initiative",
+    "answer": "Green Coding: Optimizing algorithms to reduce energy consumption in data centers. We believe in carbon-neutral code.",
+    "source": "initiative"
+  },
+  {
+    "question": "tell me about open source initiative",
+    "answer": "Open Source: We contribute to major frameworks and maintain our own libraries for the community to use freely.",
+    "source": "initiative"
+  },
+  {
+    "question": "tell me about code education initiative",
+    "answer": "Code Education: Partnering with universities to provide free workshops and internships for underrepresented students.",
+    "source": "initiative"
+  },
+  {
+    "question": "what initiatives does devorbit have",
+    "answer": "DevOrbit runs 3 key initiatives: Green Coding, Open Source, Code Education. Green Coding: Optimizing algorithms to reduce energy consumption in data centers. We believe in carbon-neutral code. Open Source: We contribute to major frameworks and maintain our own libraries for the community to use freely. Code Education: Partnering with universities to provide free workshops and internships for underrepresented students.",
+    "source": "initiative"
+  },
+  {
+    "question": "what social impact does devorbit make",
+    "answer": "Through our initiatives (Green Coding, Open Source, Code Education), we make a positive impact on the community and environment.",
+    "source": "initiative"
+  },
+  {
+    "question": "does devorbit give back to community",
+    "answer": "Yes! Our initiatives include: Green Coding - Optimizing algorithms to reduce energy consumption in data centers. We believe in carbon-neutral code. Open Source - We contribute to major frameworks and maintain our own libraries for the community to use freely. Code Education - Partnering with universities to provide free workshops and internships for underrepresented students.",
+    "source": "initiative"
+  },
+  {
+    "question": "tell me about digital strategy consulting",
+    "answer": "Digital Strategy: Aligning your technology roadmap with business goals for maximum ROI.",
+    "source": "consulting"
+  },
+  {
+    "question": "does devorbit offer digital strategy consulting",
+    "answer": "Yes! Digital Strategy: Aligning your technology roadmap with business goals for maximum ROI.",
+    "source": "consulting"
+  },
+  {
+    "question": "tell me about tech audit consulting",
+    "answer": "Tech Audit: Comprehensive analysis of your codebase, infrastructure, and security posture.",
+    "source": "consulting"
+  },
+  {
+    "question": "does devorbit offer tech audit consulting",
+    "answer": "Yes! Tech Audit: Comprehensive analysis of your codebase, infrastructure, and security posture.",
+    "source": "consulting"
+  },
+  {
+    "question": "tell me about cloud migration consulting",
+    "answer": "Cloud Migration: Seamless transition of legacy systems to modern, scalable cloud environments.",
+    "source": "consulting"
+  },
+  {
+    "question": "does devorbit offer cloud migration consulting",
+    "answer": "Yes! Cloud Migration: Seamless transition of legacy systems to modern, scalable cloud environments.",
+    "source": "consulting"
+  },
+  {
+    "question": "what consulting services does devorbit offer",
+    "answer": "We offer 3 consulting services: Digital Strategy, Tech Audit, Cloud Migration. Digital Strategy: Aligning your technology roadmap with business goals for maximum ROI. Tech Audit: Comprehensive analysis of your codebase, infrastructure, and security posture. Cloud Migration: Seamless transition of legacy systems to modern, scalable cloud environments.",
+    "source": "consulting"
+  },
+  {
+    "question": "what is the company name",
+    "answer": "Our company is called DevOrbit.",
+    "source": "settings"
+  },
+  {
+    "question": "what is the company tagline",
+    "answer": "Our tagline is: Nothing",
+    "source": "settings"
+  },
+  {
+    "question": "what is devorbit tagline",
+    "answer": "Nothing",
+    "source": "settings"
+  }
+]

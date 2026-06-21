@@ -1,0 +1,69 @@
+{
+  "name": "devorbit-backend",
+  "version": "1.0.0",
+  "description": "DevOrbit Backend API with Admin Panel",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "concurrently -n backend,team-public -c blue,yellow \"tsx watch src/server.ts\" \"tsx watch src/team-server.ts\"",
+    "build": "tsc",
+    "start": "tsx src/server.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "db:push": "prisma db push",
+    "seed:team": "tsx prisma/seed-team.ts",
+    "seed:email": "tsx prisma/seed-email.ts",
+    "db:reset": "prisma migrate reset --force",
+    "team:dev": "tsx watch src/team-server.ts",
+    "team:start": "tsx src/team-server.ts",
+    "team-admin:dev": "cd ../devorbit-team-admin && npx vite",
+    "team-admin:build": "cd ../devorbit-team-admin && npx vite build",
+    "team-admin:start": "cd ../devorbit-team-admin && npx vite preview --port 6002",
+    "dev:all": "concurrently -n backend,team-public,team-admin -c blue,yellow,green \"npm run dev\" \"npm run team-admin:dev\""
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "keywords": [
+    "devorbit",
+    "backend",
+    "api",
+    "admin"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.2.0",
+    "http-proxy-middleware": "^4.1.1",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.11.0",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.1",
+    "sanitize-html": "^2.17.5",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^25.9.2",
+    "@types/nodemailer": "^8.0.1",
+    "@types/sanitize-html": "^2.16.1",
+    "concurrently": "^10.0.3",
+    "prisma": "^5.22.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
